@@ -1,0 +1,29 @@
+
+/* reset  toda la página para que ningun navegador nos envie sus estilos por defecto*/
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+ 
+ }
+
+ .contenedor{
+    
+        display: grid;
+        grid-template-rows: auto auto ;
+        grid-template-columns: auto auto auto ;
+        width: 90%;
+        height: 35rem;
+        margin: 0 auto;
+        background-color: white;
+        border:col;
+}
+
+@media screen and (max-width: 768px) {
+    .contenedor .hijo{
+        grid-column: 1/ -6;
+    }
+}
