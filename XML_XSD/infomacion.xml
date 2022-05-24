@@ -8,11 +8,11 @@
         <poblaciones>
             <nombre></nombre>
             <prediccion id="001">
-                <fecha></fecha>
-                <temperatura_max></temperatura_max>
-                <temperatura_min></temperatura_min>
+                <fecha>2022-05-24</fecha>
+                <temperatura_max>90</temperatura_max>
+                <temperatura_min>-50</temperatura_min>
                 <probabilidad_lluvia></probabilidad_lluvia>
-                <aviso></aviso>
+                <aviso>viento</aviso>
             </prediccion>
         </poblaciones>
     </provincias>

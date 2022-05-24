@@ -3,24 +3,24 @@
 
 
 
-<!-- Elemeto Padre (informacion) con su atributo -->
+<!-- Elemeto Padre (informacion) con su atributo y contiene comunidades que pueden aparecer o no  -->
 <!-- ............................................................................................. -->
 <xs:element name="informacion">
     <xs:complexType>
         <xs:sequence>
-            <xs:element ref="comunidades" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element ref="comunidades" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
         <xs:attribute name="NIF" type="xs:string" use="required"/>
     </xs:complexType>
 </xs:element>
 
-<!-- Hijo de informacion que puede aparecer como minimo 1 o varias veces -->
+<!-- Hijo de informacion que puede aparecer como minimo 0(no existir) o varias veces -->
 <!-- .......................................................................................................... -->
 <xs:element name="comunidades" >
     <xs:complexType>
         <xs:sequence>
             <xs:element name="nombre" type="xs:string"/>
-            <xs:element ref="provincias"/>
+            <xs:element ref="provincias" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 </xs:element>
@@ -59,11 +59,33 @@
 <xs:complexType>
         <xs:sequence>
 
-<xs:element name="fecha" type="xs:string"/>
-<xs:element name="temperatura_max" type="xs:string"/>
-<xs:element name="temperatura_min" type="xs:string"/>
+<xs:element name="fecha" type="xs:date"/>
+<xs:element name="temperatura_max">
+    <xs:simpleType>
+        <xs:restriction base="xs:positiveInteger">
+            <xs:maxExclusive value="100"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:element>    
+<xs:element name="temperatura_min" >
+    <xs:simpleType>
+        <xs:restriction base="xs:float">
+            <xs:minExclusive value="-100"/>
+        </xs:restriction>
+    </xs:simpleType>
+ </xs:element>   
 <xs:element name="probabilidad_lluvia" type="xs:string"/>
-<xs:element name="aviso" type="xs:string"/>
+<xs:element name="aviso">
+    <xs:simpleType>
+<!-- En la etiqueta categoria le indicamos que solo queremos que sean posibles entres estas tres opciones -->
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="viento"/>
+            <xs:enumeration value="nieve"/>
+            <xs:enumeration value="tormentas"/>
+            <xs:enumeration value="huracán"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:element>   
  
 </xs:sequence>
 <!-- atributi al cual le indicamos que puede o no aparecer pero si aparece tiene que aparecer con el numero 2 que le indicamos -->
