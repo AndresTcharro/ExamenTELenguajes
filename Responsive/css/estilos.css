@@ -22,8 +22,57 @@
         border:col;
 }
 
-@media screen and (max-width: 768px) {
-    .contenedor .hijo{
-        grid-column: 1/ -6;
+
+/* Ya que queremos que sea las medidas para una tablet, lo he probado en el navegador dandoble al horizontal y se quedan en 2 columns y 3 rows */
+@media only screen and (min-device-width:800px) and (max-device-width:980px){
+    .contenedor .capa1{
+        grid-column: 1 / 2  ;
+        grid-row: 1 / 2;
     }
+    .contenedor .capa2 {
+        grid-column: 2 / 3  ;
+        grid-row: 1 / 2;
+    }
+    .contenedor .capa3 {
+        grid-column: 1 / 2  ;
+        grid-row: 2 / 3;
+    }
+    .contenedor .capa4 {
+        grid-column: 2 / 3 ;
+        grid-row: 2 / 3;
+    }
+    .contenedor .capa5 {
+        grid-column: 1 / 2  ;
+        grid-row: 3 / 4;
+    }
+    .contenedor .capa6 {
+        grid-column: 2 / 3 ;
+        grid-row: 3 / 4;
+    }
+  }
+
+  
+
+  /* Aqui ajustamos nuestra pagina para que sea resposive, haciendo que todos los elementos se coloquen en columna  */
+
+@media only  screen and (max-width: 768px) {
+    .contenedor .capa1{
+        grid-column: 1 / -1;
+    }
+    .contenedor .capa2 {
+        grid-column: 1/ -1;
+    }
+    .contenedor .capa3 {
+        grid-column: 1/ -1;
+    }
+    .contenedor .capa4 {
+        grid-column: 1/ -1;
+    }
+    .contenedor .capa5 {
+        grid-column: 1/ -1;
+    }
+    .contenedor .capa6 {
+        grid-column: 1/ -1;
+    }
+    
 }
