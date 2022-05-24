@@ -69,7 +69,7 @@
 </xs:element>    
 <xs:element name="temperatura_min" >
     <xs:simpleType>
-        <xs:restriction base="xs:float">
+        <xs:restriction base="xs:negativeInteger">
             <xs:minExclusive value="-100"/>
         </xs:restriction>
     </xs:simpleType>
