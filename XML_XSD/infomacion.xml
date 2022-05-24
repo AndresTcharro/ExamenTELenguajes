@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<informacion NIF="A -3900001- 3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:noNamespaceSchemaLocation="./informacion.xsd">
+
+<comunidades>
+    <nombre></nombre>
+    <provincias >
+        <nombre></nombre>
+        <poblaciones>
+            <nombre></nombre>
+            <prediccion id="001">
+                <fecha></fecha>
+                <temperatura_max></temperatura_max>
+                <temperatura_min></temperatura_min>
+                <probabilidad_lluvia></probabilidad_lluvia>
+                <aviso></aviso>
+            </prediccion>
+        </poblaciones>
+    </provincias>
+</comunidades>
+</informacion>

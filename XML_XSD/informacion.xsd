@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+
+<!-- Elemeto Padre (informacion) con su atributo -->
+<!-- ............................................................................................. -->
+<xs:element name="informacion">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element ref="comunidades" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="NIF" type="xs:string" use="required"/>
+    </xs:complexType>
+</xs:element>
+
+<!-- Hijo de informacion que puede aparecer como minimo 1 o varias veces -->
+<!-- .......................................................................................................... -->
+<xs:element name="comunidades" >
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element name="nombre" type="xs:string"/>
+            <xs:element ref="provincias"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+
+
+<!-- Provincias perteneciente a comunidades, el elemento provincias con mínimo 1 y máximo de ocurrencias las que quiera el ususario  -->
+<!-- ........................................................................................................ -->
+<xs:element name="provincias">
+    <xs:complexType>
+        <xs:sequence>
+
+            <xs:element name="nombre" type="xs:string"/>
+            <xs:element ref="poblaciones" minOccurs="1" maxOccurs="unbounded"/> 
+           
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<!-- Poblaciones  perteneciente a PROVINCIAS, el elemento provincias con mínimo 1 y máximo de ocurrencias  -->
+<!-- ........................................................................................................ -->
+<xs:element name="poblaciones">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element name="nombre" type="xs:string"/>
+            <xs:element ref="prediccion" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+    
+
+                
+<!-- Predicion  contiene varios elementos complejos que asu vez contienen elementos simples  / hijo de poblaciones-->
+<!-- ......................................................................................................... -->
+<xs:element name="prediccion">
+<xs:complexType>
+        <xs:sequence>
+
+<xs:element name="fecha" type="xs:string"/>
+<xs:element name="temperatura_max" type="xs:string"/>
+<xs:element name="temperatura_min" type="xs:string"/>
+<xs:element name="probabilidad_lluvia" type="xs:string"/>
+<xs:element name="aviso" type="xs:string"/>
+ 
+</xs:sequence>
+<!-- atributi al cual le indicamos que puede o no aparecer pero si aparece tiene que aparecer con el numero 2 que le indicamos -->
+<xs:attribute name="id" type="xs:int" />
+</xs:complexType>
+</xs:element>
+
+<!-- ........................................................................................................... -->
+</xs:schema>  
